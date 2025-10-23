@@ -1,0 +1,57 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid #d9d9d9;
+  background-color: #ffffff;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #363232;
+}
+
+.navbar-icon {
+  font-size: 32px;
+  color: #0179ff;
+  margin-right: 5px;
+}
+
+.logo-highlight {
+  color: #0179ff;
+}
+
+.new-features-button {
+  background-color: #ee28ff;
+  color: #ffffff;
+  margin-right: auto;
+}
+
+.new-features-button mat-icon {
+  margin-right: 5px;
+}
+
+.navbar-options {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  margin-left: 10px;
+}
+
+.signout-button {
+  border-color: #0179ff;
+  color: #0179ff;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+}

@@ -79,7 +79,7 @@ input[type="text"] {
   margin-top: 10px;
 }
 
-.btn {
+.custom-btn {
   background-color: #e4e4e4;
   border: none;
   border-radius: 5px;
@@ -87,6 +87,6 @@ input[type="text"] {
   cursor: pointer;
 }
 
-.btn:hover {
+.ustom-btn:hover {
   background-color: #d9d9d9;
 }

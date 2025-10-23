@@ -1,0 +1,79 @@
+/* Variables de color (reemplazadas por sus valores) */
+:host {
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  max-width: 250px;
+  margin: auto;
+  text-align: center;
+}
+
+.icon-background {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background-color: #f8faff; /* $light-background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.rocket-icon {
+  width: 65px;
+  height: auto;
+  animation: float 0.8s ease-in-out infinite alternate;
+}
+
+/* Animación simple para el cohete */
+@keyframes float {
+  from { transform: translateY(3px); }
+  to { transform: translateY(-3px); }
+}
+
+.progress-bars {
+  display: flex;
+  gap: 4px;
+  height: 8px;
+  margin-bottom: 16px;
+}
+
+.bar {
+  width: 10px;
+  height: 100%;
+  background-color: #e0e7ff; /* $inactive-color */
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.bar.active {
+  background-color: #0d6efd; /* $primary-color */
+}
+
+.status-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #212529; /* $text-dark */
+  margin: 0 0 4px 0;
+}
+
+.file-info {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #6c757d; /* $text-light */
+}
+
+.file-info .filename {
+  font-weight: 500;
+  color: #212529; /* $text-dark */
+}
+
+.file-info .size-info {
+  margin-left: 5px;
+}

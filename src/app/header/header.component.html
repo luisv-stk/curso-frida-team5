@@ -1,0 +1,24 @@
+<div class="navbar mb-5">
+  <div class="navbar-brand">
+    <mat-icon class="navbar-icon">crop_square</mat-icon>
+    <span>Photo<span class="logo-highlight">blue</span></span>
+  </div>
+  <button mat-stroked-button class="new-features-button">
+    <mat-icon>check_circle</mat-icon> Nuevas funciones
+  </button>
+  <div class="navbar-options">
+    <mat-menu #languageMenu="matMenu">
+      <button mat-menu-item>Español</button>
+      <button mat-menu-item>English</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="languageMenu">Idioma</button>
+    <mat-menu #explorerMenu="matMenu">
+      <button mat-menu-item>Option 1</button>
+      <button mat-menu-item>Option 2</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="explorerMenu">Explorar</button>
+    <button mat-button>Ayuda</button>
+    <button mat-stroked-button class="signout-button">Cerrar sesión</button>
+    <img src="https://placehold.co/400x400/jpg" class="profile-picture" alt="Profile picture"/>
+  </div>
+</div>
