@@ -1,0 +1,49 @@
+<p>new-attachment works!</p>
+<div class="container">
+  <div class="header">
+    <i class="material-icons">arrow_back</i>
+    <span>Añadir nuevo elemento</span>
+    <span class="close">Cerrar <i class="material-icons blue">check</i></span>
+  </div>
+  <div class="content">
+    <h2>Datos del archivo</h2>
+    <div class="form-group file-types">
+      <label>
+        <input type="radio" name="fileType" value="Fotografía" checked (change)="onFileTypeChange($event)">
+        Fotografía
+      </label>
+      <label>
+        <input type="radio" name="fileType" value="Vídeo" (change)="onFileTypeChange($event)">
+        Vídeo
+      </label>
+      <label>
+        <input type="radio" name="fileType" value="Ilustración" (change)="onFileTypeChange($event)">
+        Ilustración
+      </label>
+      <label>
+        <input type="radio" name="fileType" value="3D" (change)="onFileTypeChange($event)">
+        3D
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input type="text" id="title" [(ngModel)]="title">
+    </div>
+    <div class="form-group">
+      <label for="price">Precio</label>
+      <input type="text" id="price" [(ngModel)]="price">
+    </div>
+    <div class="file-upload">
+      <input type="file" id="fileInput" (change)="onFileChange($event)" hidden>
+      <div class="upload-box" (click)="openFileInput()">
+        <i class="material-icons purple">cloud_upload</i>
+        <p>Arrastra desde tu ordenador el archivo que quieres cargar</p>
+        <small>Recuerda que el archivo no puede supera los 2 Mb. y tiene que ser en formato .JPG o .PNG</small>
+      </div>
+      <div class="file-actions">
+        <button class="btn" (click)="clearFile()">Borrar</button>
+        <button class="btn">Cargar archivo</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,7 @@
 }
 
 .container {
-  background-color: var(--light-blue-bg);
+  background-color: #f5f9fd;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -24,27 +24,27 @@
 }
 
 .icon-pink {
-  color: var(--pink);
+  color: #ee28ff;
 }
 
 .last-connection {
   font-size: 14px;
-  color: var(--black);
+  color: #131313;
 }
 
 .text-pink {
-  color: var(--pink);
+  color: #ee28ff;
 }
 
 .close {
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: var(--blue);
+  color: #0179ff;
 }
 
 .icon-blue {
-  color: var(--blue);
+  color: #0179ff;
   margin-right: 5px;
 }
 
@@ -55,20 +55,20 @@
 }
 
 h2 {
-  color: var(--black);
+  color: #131313;
   font-size: 18px;
   font-weight: bold;
 }
 
 p {
-  color: var(--black);
+  color: #131313;
   margin: 5px 0;
 }
 
 ul {
   list-style-type: disc;
   padding-left: 20px;
-  color: var(--black);
+  color: #131313;
 }
 
 .buttons {
@@ -78,17 +78,17 @@ ul {
 }
 
 .btn-primary-outline {
-  border: 1px solid var(--blue);
+  border: 1px solid #0179ff;
   background-color: transparent;
-  color: var(--blue);
+  color: #0179ff;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .btn-primary {
-  background-color: var(--blue);
-  color: var(--light-blue-bg);
+  background-color: #0179ff;
+  color: #f5f9fd;
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
