@@ -1,0 +1,24 @@
+.container {
+  background-color: #f5f9fd;
+  padding: 10px;
+}
+
+
+img.img-thumbnail {
+  width: 100px;
+  height: 100px;
+}
+
+.pagination {
+  margin: 0 10px;
+}
+
+.page-link {
+  color: #0276ff;
+  border: none;
+}
+
+.page-item.active .page-link {
+  background-color: #0276ff;
+  color: white;
+}
