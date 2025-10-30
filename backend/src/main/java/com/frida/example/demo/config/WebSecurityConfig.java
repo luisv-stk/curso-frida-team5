@@ -31,6 +31,9 @@ public class WebSecurityConfig {
                 .requestMatchers("/v3/api-docs/**").permitAll()
                 .requestMatchers("/swagger-resources/**").permitAll()
                 .requestMatchers("/webjars/**").permitAll()
+
+                // Actuator endpoints
+                .requestMatchers("/actuator/**").permitAll()
                 
                 // H2 Console
                 .requestMatchers("/h2-console/**").permitAll()
