@@ -19,15 +19,26 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Usar la configuración CORS
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
+                // API endpoints
                 .requestMatchers("/api/**").permitAll()
+                
+                // Swagger UI endpoints
+                .requestMatchers("/swagger-ui/**").permitAll()
+                .requestMatchers("/swagger-ui.html").permitAll()
+                .requestMatchers("/v3/api-docs/**").permitAll()
+                .requestMatchers("/swagger-resources/**").permitAll()
+                .requestMatchers("/webjars/**").permitAll()
+                
+                // H2 Console
                 .requestMatchers("/h2-console/**").permitAll()
+                
                 .anyRequest().authenticated()
             )
             .headers(headers -> headers
-                .frameOptions(frame -> frame.disable()) // Para H2 Console
+                .frameOptions(frame -> frame.disable())
             );
         
         return http.build();
@@ -36,12 +47,9 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        
-        // IMPORTANTE: Usa setAllowedOriginPatterns en lugar de setAllowedOrigins cuando uses credentials
         configuration.setAllowedOriginPatterns(Collections.singletonList("*")); 
-        
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
-        configuration.setAllowedHeaders(Arrays.asList("*")); // Simplificado
+        configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setExposedHeaders(Arrays.asList("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));
         configuration.setAllowCredentials(true);
         configuration.setMaxAge(3600L);
