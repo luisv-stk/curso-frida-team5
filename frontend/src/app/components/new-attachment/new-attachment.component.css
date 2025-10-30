@@ -1,93 +1,204 @@
 .container {
-  background-color: #f5f9fd;
-  padding: 20px;
+  background-color: #f7fbfe;
+  padding: 28px 22px;
+  border-radius: 14px;
+  box-shadow: 0 2px 14px 0 #e1eeff44;
   font-family: 'Arial', sans-serif;
+  margin: 36px auto;
 }
 
+/* ---------- Header ---------- */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 12px 0 8px 0;
+  border-bottom: 1px solid #e4edf7;
+  margin-bottom: 6px;
 }
-
 .header .material-icons {
-  font-size: 18px;
-  margin-right: 8px;
+  font-size: 20px;
+  margin-right: 10px;
+  color: #1d71b8;
+  vertical-align: middle;
 }
-
+.header span {
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
 .header .close {
-  color: #0276ff;
+  color: #2085ff;
   display: flex;
   align-items: center;
+  font-size: 1.01em;
+  cursor: pointer;
+  transition: color 0.16s;
+  user-select: none;
 }
-
+.header .close:hover {
+  color: #1456a7;
+}
 .header .close i {
-  margin-left: 5px;
+  margin-left: 7px;
+  font-size: 22px;
+  color: #de38ed;
 }
 
+/* ---------- Content ---------- */
 .content {
   margin-top: 20px;
 }
 
 h2 {
-  font-weight: normal;
-  color: #131313;
-  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 1.21em;
+  color: #24292f;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
 }
 
+/* ---------- Formulario ---------- */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
 }
-
 .file-types label {
-  margin-right: 10px;
+  margin-right: 14px;
+  font-weight: 500;
+  color: #2166ab;
 }
 
 input[type="text"] {
-  width: calc(50% - 20px);
-  padding: 5px;
-  margin: 5px 0;
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
+  width: calc(50% - 12px);
+  padding: 7px 10px;
+  margin: 6px 0;
+  border: 1px solid #d2d9e5;
+  border-radius: 5px;
+  font-size: 0.98em;
+  transition: border-color 0.14s, box-shadow 0.14s;
+  background: #fafdff;
+}
+input[type="text"]:focus {
+  border-color: #2085ff;
+  box-shadow: 0 2px 10px 0 #daf2ff44;
 }
 
+input[type="radio"]:disabled + span,
+.file-types label:has(input:disabled) {
+  color: #a6aab0 !important;
+  opacity: 0.57;
+  font-style: italic;
+}
+
+/* ---------- File Upload ---------- */
 .file-upload {
-  border: 1px dashed #d9d9d9;
-  padding: 20px;
+  border: 1.5px dashed #c2cbe6;
+  padding: 24px 14px;
   text-align: center;
-  background-color: #ffffff;
+  background-color: #fff;
+  border-radius: 9px;
+  margin-bottom: 4px;
+  box-shadow: 0 1px 5px 0 #e6e6fa22;
+  transition: border-color 0.18s, background 0.19s;
+}
+.file-upload:hover {
+  border-color: #2085ff;
+  background: #f0f9ff;
 }
 
 .upload-box {
   cursor: pointer;
-  border: solid 1px red;
 }
-
 .upload-box p {
-  margin: 10px 0;
+  margin: 11px 0 9px 0;
   color: #6f7274;
+  font-size: 1em;
 }
-
 .upload-box .material-icons {
-  font-size: 48px;
-  color: #ee28ff;
+  font-size: 52px;
+  color: #bb13cf;
+  opacity: 0.77;
+}
+.upload-box small {
+  color: #9fa3a8;
+  font-size: 0.95em;
+}
+.file-name {
+  color: #2085ff;
+  font-weight: 500;
+  font-size: 1.04em;
+  margin-top: 4px;
 }
 
+/* ---------- File Actions Buttons ---------- */
 .file-actions {
   display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 14px;
 }
-
 .custom-btn {
-  background-color: #e4e4e4;
+  background-color: #eaeaea;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 9px 22px;
+  font-weight: 600;
+  font-size: 1em;
+  color: #232a2f;
   cursor: pointer;
+  transition: background 0.18s, color 0.18s, box-shadow 0.14s;
+  box-shadow: 0 1px 4px #f0e3fa1a;
+}
+.custom-btn:hover,
+.custom-btn:focus {
+  background-color: #d3eaff;
+  color: #1367ba;
 }
 
-.ustom-btn:hover {
-  background-color: #d9d9d9;
+/* Mejora los botones primarios como los de Material/Bootstrap */
+.btn-primary, .btn.btn-primary {
+  background: #2085ff;
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  padding: 9px 22px;
+  transition: background 0.18s;
+}
+.btn-primary:disabled,
+.btn.btn-primary:disabled {
+  background: #9bd4fa;
+  color: #fff !important;
+  cursor: not-allowed;
+}
+.btn-primary:hover, .btn.btn-primary:hover {
+  background: #1367ba;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  .container {
+    max-width: 99vw;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 8px 0;
+  }
+  .content {
+    padding: 0 2vw;
+  }
+  .file-upload {
+    padding: 14px 2vw;
+  }
+  input[type="text"] {
+    width: 98vw;
+    font-size: 1em;
+  }
+  .file-actions {
+    flex-direction: column;
+    gap: 11px;
+    margin: 12px 0 0 0;
+  }
 }

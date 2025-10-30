@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container bg-white">
   <div class="header">
     <i class="material-icons">arrow_back</i>
     <span>Añadir nuevo elemento</span>
@@ -23,6 +23,7 @@
           name="fileType"
           value="Vídeo"
           (change)="onFileTypeChange($event)"
+          disabled
         />
         Vídeo
       </label>
@@ -32,6 +33,7 @@
           name="fileType"
           value="Ilustración"
           (change)="onFileTypeChange($event)"
+          disabled
         />
         Ilustración
       </label>
@@ -41,16 +43,17 @@
           name="fileType"
           value="3D"
           (change)="onFileTypeChange($event)"
+          disabled
         />
         3D
       </label>
     </div>
-    <div class="form-group">
-      <label for="title">Título</label>
+    <div class="form-group d-flex align-items-center w-50">
+      <label for="title" class="me-2">Título</label>
       <input type="text" id="title" [(ngModel)]="title" />
     </div>
-    <div class="form-group">
-      <label for="price">Precio</label>
+    <div class="form-group d-flex align-items-center w-50">
+      <label for="price" class="me-1">Precio</label>
       <input type="text" id="price" [(ngModel)]="price" />
     </div>
     <div class="file-upload">
@@ -63,15 +66,25 @@
         #fileInputRef
       />
       <div class="upload-box" (click)="openFileInput()">
+        @if(!isLoading){ @if(fileName.length<1){
         <i class="material-icons purple">cloud_upload</i>
         <p>Arrastra desde tu ordenador el archivo que quieres cargar</p>
         <small
           >Recuerda que el archivo no puede superar los 2 Mb. y tiene que ser en
           formato .JPG o .PNG</small
         >
+        }
+
         <span *ngIf="fileName" class="file-name"
           >Archivo seleccionado: {{ fileName }}</span
         >
+        } @if(isLoading){
+        <app-upload-loader
+          *ngIf="isLoading"
+          [progress]="uploadProgress()"
+          [fileName]="selectedFile?.name!"
+        />
+        }
       </div>
     </div>
     <div class="file-actions">
@@ -86,12 +99,6 @@
     </div>
   </div>
 </div>
-
-<app-upload-loader
-  *ngIf="isLoading"
-  [progress]="uploadProgress()"
-  [fileName]="selectedFile?.name!"
-/>
 
 <!-- <div style="margin-top: 20px; text-align: center">
   <label>Progreso de prueba:</label>

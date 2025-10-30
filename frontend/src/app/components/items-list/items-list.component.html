@@ -1,47 +1,73 @@
-<div class="container">
-  <header class="d-flex justify-content-between align-items-center py-2 px-3">
+<div class="container" style="max-width: 900px; margin: 32px auto;">
+  <!-- Header elegante -->
+  <header class="d-flex justify-content-between align-items-center py-3 px-4 shadow-sm bg-white rounded-3 mb-4" style="border-bottom: 1px solid #e0e0e0;">
     <div class="d-flex align-items-center">
-      <i class="material-icons text-primary" (click)="navigateBack()">arrow_back</i>
-      <h3 class="mb-0">Todas mis publicaciones</h3>
+      <button mat-icon-button color="primary" (click)="navigateBack()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h2 class="mb-0 ms-2 fw-semibold" style="letter-spacing: -1px;">Mis Publicaciones</h2>
     </div>
-    <div class="d-flex align-items-center">
-      <i class="material-icons text-primary">check</i>
-      <span class="text-primary">Cerrar</span>
+    <div>
+      <button mat-button color="primary">
+        <mat-icon class="me-1" style="vertical-align: middle;">check</mat-icon>
+        <span>Cerrar</span>
+      </button>
     </div>
   </header>
 
-  <div class="row row-cols-1 row-cols-md-2 g-3 mt-3 bg-white px-3 py-3">
+  <!-- Cards grid -->
+  <div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="col" *ngFor="let post of posts">
-      <div class="d-flex align-items-center">
-        <img [src]="post.imageUrl" alt="Post Image" class="img-thumbnail" />
-        <div class="ms-3 border border-secondary px-2 py-2">
-          <p><strong>Nombre:</strong> {{ post.name }}</p>
-          <p><strong>Tipo de archivo:</strong> {{ post.type }}</p>
-          <p><strong>Tamaño:</strong> {{ post.size }}</p>
-          <mat-divider></mat-divider>
-          <p class="mt-2"><strong>Etiquetas descripción:</strong> {{ post.description }}</p>
-          <button mat-icon-button><mat-icon>edit</mat-icon></button>
-          <button mat-icon-button><mat-icon>delete</mat-icon></button>
+      <div class="card h-100 p-2 rounded-4 border-0 shadow-sm item-card-hover">
+        <div class="d-flex align-items-center">
+          <img [src]="post.imageUrl"
+               alt="Post Image"
+               class="rounded-3 object-fit-cover"
+               style="width: 110px; height: 110px; object-fit: cover; border: 1px solid #e0e0e0; background: #f9f9f9;" />
+          <div class="ms-3 flex-grow-1">
+            <h5 class="fw-bold mb-2" style="color: #1a237e;">{{ post.name }}</h5>
+            <div class="small text-muted mb-1">
+              <span class="me-3"><mat-icon class="mat-icon-inline">description</mat-icon> {{ post.type }}</span>
+              <span><mat-icon class="mat-icon-inline">insert_drive_file</mat-icon> {{ post.size }}</span>
+            </div>
+            <div>
+              <span class="badge bg-primary bg-opacity-10 border border-primary text-primary text-uppercase fw-semibold py-1 px-2"
+                    *ngFor="let et of post.tags">{{ et }}</span>
+            </div>
+            <div class="mt-2 text-secondary">
+              <mat-divider></mat-divider>
+              <p class="mb-1 mt-2"><strong>Descripción:</strong> {{ post.description }}</p>
+            </div>
+            <div class="mt-2 d-flex gap-2">
+              <button mat-mini-fab color="primary" aria-label="Editar">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" aria-label="Eliminar">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <footer class="d-flex justify-content-center align-items-center py-3">
-    <div class="d-flex align-items-center">
-      <button mat-icon-button><mat-icon>first_page</mat-icon></button>
-      <button mat-icon-button><mat-icon>navigate_before</mat-icon></button>
-      <ul class="pagination pagination-sm">
+  <!-- Paginador -->
+  <footer class="d-flex justify-content-center align-items-center py-4 mt-4 bg-white rounded-3 shadow-sm">
+    <div class="d-flex align-items-center gap-3">
+      <button mat-icon-button aria-label="Primer página"><mat-icon>first_page</mat-icon></button>
+      <button mat-icon-button aria-label="Página anterior"><mat-icon>navigate_before</mat-icon></button>
+      <ul class="pagination pagination-sm mb-0">
         <li class="page-item active"><button class="page-link">1</button></li>
         <li class="page-item"><button class="page-link">2</button></li>
         <li class="page-item"><button class="page-link">3</button></li>
         <li class="page-item"><button class="page-link">4</button></li>
         <li class="page-item"><button class="page-link">5</button></li>
-        <li class="page-item"><button class="page-link">...</button></li>
+        <li class="page-item disabled"><span class="page-link">...</span></li>
         <li class="page-item"><button class="page-link">12</button></li>
       </ul>
-      <button mat-icon-button><mat-icon>navigate_next</mat-icon></button>
-      <button mat-icon-button><mat-icon>last_page</mat-icon></button>
+      <button mat-icon-button aria-label="Siguiente página"><mat-icon>navigate_next</mat-icon></button>
+      <button mat-icon-button aria-label="Última página"><mat-icon>last_page</mat-icon></button>
     </div>
   </footer>
 </div>
