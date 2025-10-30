@@ -1,9 +1,23 @@
 <div class="container bg-white">
-  <div class="header">
-    <i class="material-icons">arrow_back</i>
-    <span>Añadir nuevo elemento</span>
-    <span class="close">Cerrar <i class="material-icons blue">check</i></span>
-  </div>
+  <header
+    class="d-flex justify-content-between align-items-center py-3 px-4 shadow-sm bg-white rounded-3 mb-4"
+    style="border-bottom: 1px solid #e0e0e0"
+  >
+    <div class="d-flex align-items-center">
+      <button mat-icon-button color="primary" (click)="navigateBack()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h2 class="mb-0 ms-2 fw-semibold" style="letter-spacing: -1px">
+        Añadir nuevo elemento
+      </h2>
+    </div>
+    <div>
+      <button mat-button color="primary">
+        <mat-icon class="me-1" style="vertical-align: middle">check</mat-icon>
+        <span>Cerrar</span>
+      </button>
+    </div>
+  </header>
   <div class="content">
     <h2>Datos del archivo</h2>
     <div class="form-group file-types">

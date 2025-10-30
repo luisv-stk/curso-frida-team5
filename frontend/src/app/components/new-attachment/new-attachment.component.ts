@@ -8,10 +8,19 @@ import {
   FileUploadService,
 } from '../../services/file-upload.service';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-new-attachment',
-  imports: [FormsModule, CommonModule, UploadLoaderComponent, HttpClientModule],
+  imports: [
+    FormsModule,
+    CommonModule,
+    UploadLoaderComponent,
+    HttpClientModule,
+    MatIconModule,
+    MatButtonModule
+  ],
   templateUrl: './new-attachment.component.html',
   styleUrl: './new-attachment.component.css',
 })
@@ -47,7 +56,6 @@ export class NewAttachmentComponent {
         this.selectedFile = file;
         this.fileName = file.name; // Guardar nombre
       } else {
-        alert('Archivo no válido.');
         this.selectedFile = null;
         this.fileName = ''; // Limpiar nombre
       }
@@ -86,7 +94,6 @@ export class NewAttachmentComponent {
 
   async uploadFile(): Promise<void> {
     if (!this.selectedFile) {
-      alert('Selecciona un archivo primero.');
       return;
     }
 
@@ -95,7 +102,6 @@ export class NewAttachmentComponent {
     try {
       base64String = await this.fileToBase64(this.selectedFile);
     } catch (error) {
-      alert('Error al convertir el archivo a Base64.');
       return;
     }
 
@@ -112,7 +118,6 @@ export class NewAttachmentComponent {
     this.fileUploadService.uploadFile(dataToUpload).subscribe({
       next: (response) => {
         this.isLoading = false;
-        alert('Archivo subido correctamente');
         console.log('Respuesta recibida en el COMPONENTE:', response);
         this.clearFile();
         this.router.navigate(['/items-list'], {
@@ -134,6 +139,10 @@ export class NewAttachmentComponent {
       'fileInput'
     ) as HTMLInputElement;
     if (fileInput) fileInput.value = '';
+  }
+
+  navigateBack() {
+    this.router.navigate(['']);
   }
 
   /*uploadProgress = signal(35); // Empezamos en 35% como ejemplo

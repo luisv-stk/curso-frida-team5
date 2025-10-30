@@ -27,7 +27,8 @@ export class ItemsListComponent implements OnInit {
     this.posts = [
       {
         name: this.uploadResponse['titulo'],
-        type: this.uploadResponse['tipo'],
+        type: 'JPG',
+        //TODO-->Cambiar tipo 1,2,3 por correspondiente
         size: this.uploadResponse['tamanio'],
         description: this.tagString,
         imageUrl: `data:image/jpeg;base64,${this.uploadResponse['documento']}`,

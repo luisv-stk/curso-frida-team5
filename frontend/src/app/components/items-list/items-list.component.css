@@ -1,7 +1,11 @@
 /* Centro el grid, tarjetas, títulos y footer */
 .container {
-  max-width: 900px;
-  margin: 40px auto 0 auto;
+  background-color: #f7fbfe;
+  padding: 28px 22px;
+  border-radius: 14px;
+  box-shadow: 0 2px 14px 0 #e1eeff44;
+  font-family: 'Arial', sans-serif;
+  margin: 36px auto;
 }
 
 header,
